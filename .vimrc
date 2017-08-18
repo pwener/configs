@@ -145,7 +145,7 @@ set backspace=2
 syntax on
 
 " Set autoindent.
-set ai
+" set ai
 
 "	Show (partial) command in the last line of the screen.
 set showcmd
@@ -292,8 +292,6 @@ let g:startify_custom_footer = [
 let g:startify_bookmarks = [
   \ '~/.vimrc',
   \ '~/.bashrc',
-  \ '~/Dropbox/UnB',
-  \ '~/Dropbox/UnB/FSO',
   \ ]
 
 let g:startify_list_order = [
