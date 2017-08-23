@@ -296,7 +296,7 @@ let g:startify_custom_footer = [
 
 let g:startify_bookmarks = [
   \ '~/.vimrc',
-  \ '~/.bashrc',
+  \ '~/.bash_profile',
   \ ]
 
 let g:startify_list_order = [
