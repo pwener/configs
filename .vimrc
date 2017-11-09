@@ -1,6 +1,7 @@
-" Vundle Plugin Manager
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" Plug Manager plugins
 
 " Keep Plugin commands between plug#begin/end.
 call plug#begin('~/.vim/plugged')
