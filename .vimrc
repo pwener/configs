@@ -1,7 +1,11 @@
+"This vim file uses 2 plugin manager: Pathogen and Plug
+
+" Pathogen Manager
+execute pathogen#infect()
+
+" Plug Plugin Manager
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-" Plug Manager plugins
 
 " Keep Plugin commands between plug#begin/end.
 call plug#begin('~/.vim/plugged')
@@ -27,18 +31,13 @@ Plug 'tpope/vim-fugitive'
 " A code-completion engine for Vim
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_global_ycm_extra_conf ='~/.ycm_extra_conf.py'
-" let g:loaded_youcompleteme = 1
-
-" A code-completion engine for c/c++
-"Plug 'Rip-Rip/clang_complete'
-"let g:clang_user_options='|| exit 0'
 
 " A plugin to auto close brackets
 Plug 'jiangmiao/auto-pairs'
 
 " Track the engine for snippets
 Plug 'SirVer/ultisnips'
+
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -51,11 +50,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Snippets are separated from the engine.
 Plug 'honza/vim-snippets'
-
-" A plugin to auto complete based in cache of words in buffer.
-" Plug 'Shougo/neocomplete.vim'
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
 
 " A plugin to see the colors directly in vim.
 Plug 'gorodinskiy/vim-coloresque'
@@ -71,41 +65,8 @@ Plug 'dandorman/vim-colors'
 " This plugin provides a start screen for Vim and Neovim.
 Plug 'mhinz/vim-startify'
 
-" This plugin causes all trailing whitespace to be highlighted in red.
-Plug 'bronson/vim-trailing-whitespace'
-
-" This plugin provides higlighted for nginx confs
-Plug 'evanmiller/nginx-vim-syntax'
-
-" This plugin provides higlighted and syntax for ansible, yaml and jinja2
-Plug 'pearofducks/ansible-vim'
-
-" This plugin provides support for writing LaTeX documents.
-Plug 'lervag/vimtex'
-
-" A plugin that provides support for writing LaTeX documents.
-" Plug 'lervag/vimtex'
-
-" A much simpler way to use some motions in vim.
-" Plug 'easymotion/vim-easymotion'
-
-" A simple, easy-to-use Vim alignment plugin.
-"	Plug 'junegunn/vim-easy-align'
-
-" Additional vim c++ syntax highlighting.
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Additional vim nginx.conf syntax highlighting.
-Plug 'evanmiller/nginx-vim-syntax'
-
 " Additional vim python syntax highlighting.
 Plug 'hdima/python-syntax'
-
-" Ember Handlebars/HTMLBars syntax highlighting and indentation to Vim
-Plug 'joukevandermaas/vim-ember-hbs'
-
-" Syntax checking plugin for Vim.
-" Plug 'scrooloose/syntastic'
 
 " Permit to tab-complete words while typing in a search.
 Plug 'vim-scripts/SearchComplete'
@@ -113,15 +74,18 @@ Plug 'vim-scripts/SearchComplete'
 " The NERD tree allows you to explore your filesystem and to open files and directories.
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'fatih/vim-go'
 
 call plug#end() " required
 " To ignore plugin indent changes, instead use:
 filetype plugin indent on    " required
 
-" Put your non-Plugin stuff after this line.
+" Go config
+autocmd Filetype go setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" ################# Put your non-Plugin stuff after this line. #########################
+
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 set list
 
@@ -180,17 +144,6 @@ vnoremap <c-s-k> :m '<-2<CR>gv=gv
 nnoremap B ^
 nnoremap E $
 
-" Disable arrow keys.
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
-
-"vnoremap <Up> <NOP>
-"vnoremap <Down> <NOP>
-"vnoremap <Left> <NOP>
-"vnoremap <Right> <NOP>
-
 " Show a vertical line on column 90.
 if exists('+colorcolumn')
   set colorcolumn=90
@@ -228,7 +181,13 @@ set smarttab
 
 " Colors configs.
 set background=dark
+
+" Disabling pymode folding
+set foldlevelstart=10
+
 colorscheme molokai " Put the monokai.vim file in .vim/colors
+" Background transparent
+hi Normal guibg=NONE ctermbg=NONE
 set t_Co=256
 
 " Set numbers in lines of file.
