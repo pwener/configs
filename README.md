@@ -1,5 +1,3 @@
-# My Debian Configs
+# My ubuntu configs.
 
-## Inspirations
-
-https://github.com/wiltonsr/Utils
+This repo includes my vim config, aliases, instalations and another stuffsased Configs
