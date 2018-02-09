@@ -125,25 +125,6 @@ set clipboard=unnamedplus
 set cursorline
 set cursorcolumn
 
-" Tab navigation.
-nnoremap H gT
-nnoremap L gt
-
-" AutoClose.
-imap < <><left>
-
-" Move lines like in atom.
-nnoremap <c-s-j> :m .+1<CR>==
-nnoremap <c-s-k> :m .-2<CR>==
-inoremap <c-s-j> <Esc>:m .+1<CR>==gi
-inoremap <c-s-k> <Esc>:m .-2<CR>==gi
-vnoremap <c-s-j> :m '>+1<CR>gv=gv
-vnoremap <c-s-k> :m '<-2<CR>gv=gv
-
-" Move to beginning/end of line.
-nnoremap B ^
-nnoremap E $
-
 " Show a vertical line on column 90.
 if exists('+colorcolumn')
   set colorcolumn=90
@@ -199,7 +180,12 @@ map <c-n> :set rnu!<CR>
 " Highlight matching [{()}].
 set showmatch
 
-" Save with ctrl+s.
+" Set <S-Tab> to switch between split windows
+map <S-Tab> <C-W>w
+
+" Tab navigation.
+nnoremap H gT
+nnoremap L gt
 
 " Set F2 button to call NerdTree.
 map <F2> :NERDTreeToggle<CR>
