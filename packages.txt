@@ -1,0 +1,4 @@
+git
+terminator
+vim
+firefox

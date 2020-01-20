@@ -21,12 +21,26 @@ alias gs='git status'
 alias gaa='git add --all'
 alias gc='git commit -m' # requires message
 alias gp='git push'
+alias gl='git log --all --decorate --oneline --graph'
 
+export DEV_PATH=$HOME/development
+
+alias android-studio='sh $DEV_PATH/android-studio/bin/studio.sh'
+
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/Workspace/golang
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+export ANDROID_HOME=$DEV_PATH/Android/Sdk
+export ANDROID_SDK=$DEV_PATH/Android/Sdk
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH="$PATH:development/flutter/bin"
 
 parse_git_branch() {
-       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 export PS1="\[$(tput bold)\]\u@\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;40m\]\w\[\033[38;5;33m\]\$(parse_git_branch)\[\033[38;5;7m\]$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
